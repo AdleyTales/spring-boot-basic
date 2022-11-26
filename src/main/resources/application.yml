@@ -1,0 +1,33 @@
+
+# ------------------------------------- server -------------------------------------
+server:
+  port: 8090
+
+
+# ------------------------------------- spring -------------------------------------
+spring:
+  application:
+    name: study-java-springboot-app
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT
+  profiles:
+    active: dev
+
+
+# ------------------------------------- logging -------------------------------------
+logging:
+  file:
+    name: log/access.log # 文件名
+  level:
+    root: info
+    study-java-springboot-app: debug
+# config: classpath:/logback-${spring.profiles.active}.xml
+
+
+# ------------------------------------- mybatis -------------------------------------
+mybatis:
+  mapper-locations: classpath:/mybatis/*.xml
