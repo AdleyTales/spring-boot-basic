@@ -1,5 +1,6 @@
 package com.studymybatis.hello.service;
 
+import com.github.pagehelper.PageHelper;
 import com.studymybatis.hello.mapper.UserMapper;
 import com.studymybatis.hello.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +16,12 @@ public class UserService {
   private UserMapper userMapper;
 
   // 获取用户列表
-  public List<User> getUsers() {
+  public List<User> getUsers(int pageNum, int pageSize) {
     // var list = new ArrayList<User>();
     // list.add(new User(1, "Hadley", 20));
     // list.add(new User(2, "Wang Sir", 30));
+
+    PageHelper.startPage(pageNum, pageSize);
 
     var list = userMapper.queryUserList();
 

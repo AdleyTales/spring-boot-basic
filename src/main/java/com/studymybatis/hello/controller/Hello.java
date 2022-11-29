@@ -26,8 +26,9 @@ public class Hello {
   }
 
   @GetMapping("/users")
-  public List<User> getUsers() {
-    var list = userService.getUsers();
+  public List<User> getUsers(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+                             @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize) {
+    var list = userService.getUsers(pageNum, pageSize);
     System.out.println(list);
     logger.info("user list: {} !", list);
 

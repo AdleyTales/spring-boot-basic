@@ -31,3 +31,4 @@ logging:
 # ------------------------------------- mybatis -------------------------------------
 mybatis:
   mapper-locations: classpath:/mybatis/*.xml
+  config-location: classpath:/mybatis-config.xml
