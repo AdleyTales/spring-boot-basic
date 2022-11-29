@@ -10,4 +10,14 @@
     from user
   </select>
 
+  <select id="queryUserById" resultType="com.studymybatis.hello.pojo.User">
+    select id, name, age
+    from user where id = #{id}
+  </select>
+
+  <insert id="addUser" parameterType="com.studymybatis.hello.pojo.User">
+    insert into user (name, age)
+    values (#{name}, #{age})
+  </insert>
+
 </mapper>

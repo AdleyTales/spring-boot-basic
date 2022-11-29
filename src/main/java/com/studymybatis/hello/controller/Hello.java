@@ -7,9 +7,7 @@ import com.studymybatis.hello.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,10 +27,21 @@ public class Hello {
 
   @GetMapping("/users")
   public List<User> getUsers() {
-    var list =  userService.getUsers();
+    var list = userService.getUsers();
     System.out.println(list);
-    logger.info("user list: {} !",  list);
+    logger.info("user list: {} !", list);
 
     return list;
+  }
+
+  @GetMapping("/user")
+  public User getUserById(@RequestParam(value = "id") Integer id) {
+    return userService.getUserById(id);
+  }
+
+  @PostMapping("/addUser")
+  public Integer addUser(@RequestBody User user) {
+    logger.info("新增用户，收到客户端参数: {} !", user);
+    return userService.addUser(user);
   }
 }

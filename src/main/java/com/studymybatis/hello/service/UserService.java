@@ -24,4 +24,15 @@ public class UserService {
 
     return list;
   }
+
+  // 获取用户
+  public User getUserById(Integer id) {
+    User user = userMapper.queryUserById(id);
+    return user;
+  }
+
+  // 新增用户
+  public Integer addUser(User user) {
+    return userMapper.addUser(user);
+  }
 }

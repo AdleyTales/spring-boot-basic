@@ -11,4 +11,8 @@ import java.util.List;
 public interface UserMapper {
 
   List<User> queryUserList();
+
+  User queryUserById(Integer id);
+
+  Integer addUser(User user);
 }
